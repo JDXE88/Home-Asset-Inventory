@@ -8,7 +8,7 @@ python -m venv env
 
 2. Activate the virtual environment
 source env/bin/activate  # For Linux/macOS
-# .\env\Scripts\activate  # For Windows
+.\env\Scripts\activate  # For Windows
 
 3. Install Flask
 pip install Flask
