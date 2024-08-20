@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Inventory</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Home Inventory</h1>
+
+        <!-- Currency Selector -->
+        <div class="text-center mb-4">
+            <label for="currencySelector" class="mr-2">Select Currency:</label>
+            <select id="currencySelector" class="form-control d-inline-block w-auto">
+                <option value="€">Euro (€)</option>
+                <option value="£" selected>Pound (£)</option>
+                <option value="$">Dollar ($)</option>
+            </select>
+        </div>
+
+        <div class="card mb-4 rounded-top">
+            <div class="card-header bg-success text-white">
+                <h2 class="mb-0">Add Item</h2>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('add_item') }}" method="post" class="form-inline justify-content-center">
+                    <div class="form-group mx-2">
+                        <input type="text" class="form-control" name="name" placeholder="Item Name" required>
+                    </div>
+                    <div class="form-group mx-2">
+                        <select name="category" class="form-control" required>
+                            <option value="" disabled selected>Select Category</option>
+                            {% for category, subcategories in categories.items() %}
+                                <optgroup label="{{ category }}">
+                                    {% for subcategory in subcategories %}
+                                        <option value="{{ subcategory }}">{{ subcategory }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group mx-2">
+                        <input type="number" step="0.01" class="form-control" name="value" placeholder="Value" required>
+                    </div>
+                    <div class="form-group mx-2">
+                        <input type="number" class="form-control" name="quantity" placeholder="Quantity" required>
+                    </div>
+                    <button type="submit" class="btn btn-success rounded-pill px-4 mx-2">
+                        <img src="{{ url_for('static', filename='icons/plus.png') }}" alt="Add Item" class="icon-size">
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <h2 class="text-center mb-4">Inventory</h2>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Value</th>
+                    <th>Quantity</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.category }}</td>
+                    <td class="currency-cell">{{ currency_symbol }}{{ "{:.2f}".format(item.value) }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td class="text-center actions-cell">
+                        <a href="{{ url_for('update_item', name=item.name) }}" class="icon-button" aria-label="Update Item">
+                            <img src="{{ url_for('static', filename='icons/pen.png') }}" alt="Update Item">
+                        </a>
+                        <a href="{{ url_for('delete_item', name=item.name) }}" class="icon-button" aria-label="Delete Item">
+                            <img src="{{ url_for('static', filename='icons/remove.png') }}" alt="Delete Item">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Export Button with Icon and Text -->
+        <div class="text-center mb-4">
+            <a href="{{ url_for('export_inventory') }}" class="btn btn-outline-primary d-inline-flex align-items-center">
+                <img src="{{ url_for('static', filename='icons/download.png') }}" alt="Download CSV" class="icon-size">
+                <span class="ml-2 download-text">Download as CSV</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('currencySelector').addEventListener('change', function() {
+            const selectedCurrency = this.value;
+            document.querySelectorAll('.currency-cell').forEach(cell => {
+                const valueText = cell.textContent.replace(/^[^\d]/, ''); // Remove the currency symbol for calculation
+                cell.textContent = selectedCurrency + valueText; // Update text content
+            });
+        });
+    </script>
+</body>
+</html>

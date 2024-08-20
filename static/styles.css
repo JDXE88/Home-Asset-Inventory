@@ -1,0 +1,159 @@
+/* Font-face rules */
+@font-face {
+    font-family: 'Indie Flower';
+    src: url('/static/fonts/Indie_Flower/IndieFlower-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pesta Rakyat';
+    src: url('/static/fonts/Pesta_Rakyat/Pesta-Rakyat.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DS Digital';
+    src: url('/static/fonts/ds_digital/DS-DIGI.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Global styles */
+body {
+    font-family: 'DS Digital', sans-serif;
+    background-color: #f8f9fa;
+}
+
+h1, h2 {
+    font-weight: normal;
+    font-family: 'Pesta Rakyat', cursive, sans-serif;
+}
+
+.card {
+    border-radius: 15px; /* Ensure all corners are rounded */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f8ff; /* Change this to your preferred background color */
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0; /* Round only the top corners of the card header */
+    background-color: #197a1c; /* Change this to your preferred header color */
+    color: #ffffff; /* Change this to your preferred text color */
+}
+
+.card-body {
+    border-radius: 0 0 15px 15px; /* Ensure the bottom corners of the card body match the card's border radius */
+}
+
+/* Button styling */
+.btn {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 20px;
+    font-family: 'Indie Flower', cursive, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-rounded {
+    border-radius: 50px;
+}
+
+/* Container styling */
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.form-inline .form-group {
+    margin-bottom: 10px;
+}
+
+/* Styling for the "Add Item" button */
+.btn-success {
+    background-color: #4CAF50; /* Button background color */
+    border-color: #4CAF50; /* Button border color */
+}
+
+.btn-success:hover {
+    background-color: #45a049; /* Button hover color */
+    border-color: #45a049; /* Button hover border color */
+}
+
+/* Currency selector styling */
+#currencySelector {
+    font-size: 16px;
+}
+
+/* Icon button styling */
+.icon-size {
+    width: 30px; /* Set width to 30px */
+    height: 30px; /* Set height to 30px */
+}
+
+.icon-button {
+    width: 30px; /* Set width to 30px */
+    height: 30px; /* Set height to 30px */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    border: none; /* Remove any border */
+    background: none; /* Remove background */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: inline-flex; /* Align icons side by side */
+    align-items: center; /* Center the icon vertically */
+    justify-content: center; /* Center the icon horizontally */
+}
+
+/* Ensure icon images fit within buttons */
+.icon-button img {
+    width: 100%; /* Make image fill the button */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.icon-button:hover {
+    opacity: 0.8; /* Optional: Add hover effect */
+}
+
+/* Additional styling to make sure buttons are aligned side by side */
+.actions-cell {
+    display: flex; /* Flexbox to align buttons horizontally */
+    gap: 5px; /* Space between buttons */
+    justify-content: center; /* Center align the buttons horizontally */
+}
+
+/* Currency cell styling */
+.currency-cell {
+    text-align: right; /* Right-align text for currency cells */
+}
+
+/* Export Button Styling */
+.btn-outline-primary {
+    font-family: 'DS Digital', sans-serif;
+    font-size: 14px;
+}
+
+/* Download Button Text Styling */
+.download-text {
+    font-family: 'DS Digital', sans-serif;
+    font-size: 14px;
+    margin-left: 8px; /* Space between icon and text */
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 576px) {
+    .icon-size {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .icon-size {
+        width: 24px;
+        height: 24px;
+    }
+}
