@@ -16,3 +16,11 @@ pip install Flask
 # (Optional) 4. Save dependencies to requirements.txt
 pip freeze > requirements.txt
 
+Screenshots:
+https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot1.jpg
+https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot2.jpg
+https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot3.jpg
+
+Video:
+https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Recording.mp4
+
