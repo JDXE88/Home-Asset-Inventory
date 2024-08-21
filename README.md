@@ -17,20 +17,9 @@ pip install Flask
 pip freeze > requirements.txt
 
 Screenshots:
-<<<<<<< HEAD
 ![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot1.jpg)
 ![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot2.jpg)
 ![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot3.jpg)
 
 Video:
-[![Video Title](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Videothumbnail.jpg)](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/AppRecording.mp4)
-
-=======
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot01.jpg)
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot02.jpg)
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot03.jpg)
->>>>>>> fb7e0f7672f685bd5dc75567c85d2328ca7280f2
-
-Video:
-[![Video Title](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Videothumbnail.jpg)
-(https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/AppRecording.mp4)
+https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/AppRecording.mp4
