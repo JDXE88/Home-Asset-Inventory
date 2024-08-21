@@ -17,9 +17,14 @@ pip install Flask
 pip freeze > requirements.txt
 
 # Screenshots:
+
 ![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot01.jpg)
 ![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot02.jpg)
 ![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot03.jpg)
 
-# Video:
-[![Watch the video](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Videothumbnail.jpg)](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/AppRecording.mp4)
+# Demo:
+
+![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo1.gif)
+![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo2.gif)
+![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo3.gif)
+![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo4.gif)
