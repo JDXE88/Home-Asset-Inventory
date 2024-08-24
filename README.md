@@ -1,30 +1,52 @@
-# Home-Asset-Inventory
-This is just a basic home asset inventory system.
+# Home Asset Inventory
 
-It is created within a virtual environment. So the pip package should be in there.
+Welcome to the Home Asset Inventory system. This is a basic application designed to help you manage and track home assets.
 
-1. Create a virtual environment
-python -m venv env
+## Getting Started
 
-2. Activate the virtual environment
-source env/bin/activate  # For Linux/macOS
-.\env\Scripts\activate  # For Windows
+To set up the project, follow these steps:
 
-3. Install Flask
-pip install Flask
+1. **Create a virtual environment:**
+   ```bash
+   python -m venv env
+   ```
 
-(Optional) 4. Save dependencies to requirements.txt
-pip freeze > requirements.txt
+2. **Activate the virtual environment:**
 
-# Screenshots:
+   - For Linux/macOS:
+     ```bash
+     source env/bin/activate
+     ```
 
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot01.jpg)
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot02.jpg)
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot03.jpg)
+   - For Windows:
+     ```bash
+     .\env\Scripts\activate
+     ```
 
-# Demo:
+3. **Install Flask:**
+   ```bash
+   pip install Flask
+   ```
 
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo1.gif)
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo2.gif)
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo3.gif)
-![image](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo4.gif)
+4. **(Optional) Save dependencies to `requirements.txt`:**
+   ```bash
+   pip freeze > requirements.txt
+   ```
+
+## Screenshots
+
+Here are some screenshots of the application:
+
+![Screenshot 1](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot01.jpg)
+![Screenshot 2](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot02.jpg)
+![Screenshot 3](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot03.jpg)
+
+## Demo
+
+READMEout these GIFs for a demonstration of the application's features:
+
+![Demo 1](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo1.gif)
+![Demo 2](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo2.gif)
+![Demo 3](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo3.gif)
+![Demo 4](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo4.gif)
+```
