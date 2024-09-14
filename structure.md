@@ -113,5 +113,4 @@ HomeAssetSystem/
 │   ├── model.py
 │   └── pyvenv.cfg
 │
-├── HomeAssetSystem/.gitattributes
 └── HomeAssetSystem/README.md
