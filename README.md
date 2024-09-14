@@ -19,11 +19,11 @@ To set up and run the project, follow these steps:
 
 ### 2. Clone Your Fork
 
-1. Copy the URL of your forked repository (e.g., `https://github.com/YOUR_USERNAME/Home-Asset-Inventory.git`).
+1. Copy the URL of your forked repository (e.g., `https://github.com/JDXE88/Home-Asset-Inventory.git`).
 2. Open your terminal or command prompt.
 3. Clone the repository using the following command:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Home-Asset-Inventory.git
+   git clone https://github.com/JDXE88/Home-Asset-Inventory.git
    ```
 4. Navigate into the project directory:
    ```bash
