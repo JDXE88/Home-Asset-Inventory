@@ -1,6 +1,12 @@
 # Home Asset Inventory
 
-Welcome to the Home Asset Inventory system. This is a basic application designed to help you manage and track home assets.
+Welcome to the Home Asset Inventory system. This application helps you manage and track home assets. You can add, update, and view items, including details like name, category, value, quantity, and barcode.
+
+## Features
+
+- **Add, Update, and View Items:** Manage your home assets with options to add new items, update existing ones, and view the inventory.
+- **Dark Mode Toggle:** Switch between light and dark modes for better visibility and personal preference.
+- **CSV Upload:** Import items from a CSV file to quickly populate the inventory.
 
 ## Getting Started
 
@@ -24,14 +30,21 @@ To set up and run the project, follow these steps:
    cd Home-Asset-Inventory
    ```
 
-### 3. Create a Virtual Environment
+### 3. Remove the `venv` Directory
+
+If the `venv` folder was included in the clone (it shouldn't be), remove it:
+```bash
+rm -rf venv
+```
+
+### 4. Create a Virtual Environment
 
 1. Create a virtual environment with the following command:
    ```bash
    python -m venv env
    ```
 
-### 4. Activate the Virtual Environment
+### 5. Activate the Virtual Environment
 
 - For Linux/macOS:
   ```bash
@@ -43,23 +56,19 @@ To set up and run the project, follow these steps:
   .\env\Scripts\activate
   ```
 
-### 5. Install Dependencies
+### 6. Install Dependencies
 
 Install the required packages using:
 ```bash
-pip install Flask python-barcode pillow
+pip install Flask python-barcode pillow flask_sqlalchemy
 ```
 
-### 6. (Optional) Save Dependencies
+### 7. (Optional) Save Dependencies
 
 To save the dependencies to `requirements.txt`, run:
 ```bash
 pip freeze > requirements.txt
 ```
-
-### 7. Set Up the Database
-
-Before running the application, ensure that your database is set up. You may need to create tables and configure initial data. Refer to the project documentation or scripts for specific instructions on setting up the database.
 
 ### 8. Run the Application
 
@@ -69,22 +78,22 @@ python app.py
 ```
 The application will be available at `http://127.0.0.1:5000/` by default.
 
+### 9. Adding Initial Data
+
+You do not need to set up your own database manually. The application will handle database provisioning automatically. However, to initialize the database, you will need to add at least one item to the inventory through the application interface.
+
+### 10. CSV Upload
+
+To test CSV uploads, use the provided example file: `HAS/Home-Asset-Inventory/exampleupload.csv`. This file demonstrates the format needed for successful uploads.
+
 ## Screenshots
 
-Here are some screenshots of the application:
+<!-- Here are some screenshots of the application:
 
 ![Screenshot 1](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot01.jpg)
 ![Screenshot 2](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot02.jpg)
 ![Screenshot 3](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot03.jpg)
-
-## Demo
-
-Check out these GIFs for a demonstration of the application's features:
-
-![Demo 1](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo1.gif)
-![Demo 2](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo2.gif)
-![Demo 3](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo3.gif)
-![Demo 4](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Demo4.gif)
+-->
 
 ## Contributing
 
