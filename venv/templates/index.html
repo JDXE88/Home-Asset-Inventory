@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Inventory</title>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles.css') }}"
+  />
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+</head>
+<body>
+  <!-- Theme Toggle Button -->
+  <div class="theme-toggle" onclick="toggleTheme()">
+    Toggle Theme
+  </div>
+
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Home Inventory</h1>
+
+    <!-- Search Bar -->
+    <div class="d-flex justify-content-center mb-4">
+      <form action="{{ url_for('index') }}" method="get" class="form-inline">
+        <input type="text" name="search_term" value="{{ search_term }}" placeholder="Search by Name or Barcode"
+          class="form-control" />
+        <button type="submit" class="btn btn-primary ml-2">
+          <img src="{{ url_for('static', filename='img/search.png') }}" alt="Search" class="icon-size" />
+        </button>
+      </form>
+    </div>
+
+    <!-- Currency Selector -->
+    <div class="text-center mb-4">
+      <label for="currencySelector" class="mr-2">Select Currency:</label>
+      <select id="currencySelector" class="form-control d-inline-block w-auto" onchange="updateCurrency()">
+        <option value="€" {% if currency_symbol=='€' %}selected{% endif %}>Euro (€)</option>
+        <option value="£" {% if currency_symbol=='£' %}selected{% endif %}>Pound (£)</option>
+        <option value="$" {% if currency_symbol=='$' %}selected{% endif %}>Dollar ($)</option>
+      </select>
+    </div>
+
+    <!-- Category Filter Dropdown -->
+    <div class="text-center mb-4">
+      <label for="categoryFilter" class="mr-2">Filter by Category:</label>
+      <select id="categoryFilter" class="form-control d-inline-block w-auto" onchange="filterByCategory()">
+        <option value="">All Categories</option>
+        {% for category, subcategories in categories.items() %}
+        <option value="{{ category }}" {% if category==selected_category %}selected{% endif %}>{{ category }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- JavaScript to Handle Filtering and Sorting -->
+    <script>
+      function filterByCategory() {
+        const category = document.getElementById('categoryFilter').value;
+        const searchTerm = new URLSearchParams(window.location.search).get('search_term') || '';
+        const sortBy = new URLSearchParams(window.location.search).get('sort_by') || 'name';
+        const order = new URLSearchParams(window.location.search).get('order') || 'asc';
+        const currency = document.getElementById('currencySelector').value;
+        const url = `{{ url_for('index') }}?search_term=${searchTerm}&sort_by=${sortBy}&order=${order}&category=${category}&currency=${currency}`;
+        window.location.href = url;
+      }
+
+      function updateCurrency() {
+        const selectedCurrency = document.getElementById('currencySelector').value;
+        document.querySelectorAll(".currency-cell").forEach((cell) => {
+          const valueText = cell.textContent.replace(/^[^\d]+/, ""); // Remove the existing currency symbol
+          cell.textContent = selectedCurrency + valueText; // Set the new symbol and the value
+        });
+      }
+
+      function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme); // Save user preference
+      }
+
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      });
+    </script>
+
+    <div class="card mb-4 rounded-top">
+      <div class="card-header">
+        <h2 class="mb-0">Add Item</h2>
+      </div>
+      <div class="card-body">
+        <form action="{{ url_for('add_item') }}" method="post" class="form-inline justify-content-center">
+          <div class="form-group mx-2">
+            <input type="text" class="form-control" name="name" placeholder="Item Name" required />
+          </div>
+          <div class="form-group mx-2">
+            <select name="category" class="form-control" required>
+              <option value="" disabled selected>Select Category</option>
+              {% for category, subcategories in categories.items() %}
+              <optgroup label="{{ category }}">
+                {% for subcategory in subcategories %}
+                <option value="{{ subcategory }}">{{ subcategory }}</option>
+                {% endfor %}
+              </optgroup>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group mx-2">
+            <input type="number" step="0.01" class="form-control" name="value" placeholder="Value" required />
+          </div>
+          <div class="form-group mx-2">
+            <input type="number" step="0.01" class="form-control" name="quantity" placeholder="Quantity" required />
+          </div>
+          <div class="form-group mx-2">
+            <input type="text" class="form-control" name="barcode" placeholder="Barcode" required />
+          </div>
+          <button type="submit" class="btn btn-success rounded-pill px-2 py-1 mx-2">
+            <img src="{{ url_for('static', filename='img/add.png') }}" alt="Add Item" class="icon-size" />
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <h2 class="text-center mb-4">Inventory</h2>
+
+    <!-- Container for buttons -->
+    <div class="button-container mb-4">
+      <!-- Import Button with Form -->
+      <form action="{{ url_for('import_inventory') }}" method="post" enctype="multipart/form-data"
+        class="d-inline-flex align-items-center">
+        <div class="form-group mb-0 mr-2">
+          <input type="file" name="file" class="form-control-file" accept=".csv" required />
+        </div>
+        <button type="submit" class="btn btn-outline-primary d-inline-flex align-items-center">
+          <img src="{{ url_for('static', filename='img/upload.png') }}" alt="Upload CSV" class="icon-size" />
+          <span class="ml-2 download-text">Import from CSV</span>
+        </button>
+      </form>
+
+      <!-- Export Button with Icon and Text -->
+      <a href="{{ url_for('export_inventory') }}" class="btn btn-outline-primary d-inline-flex align-items-center">
+        <img src="{{ url_for('static', filename='img/download.png') }}" alt="Download CSV" class="icon-size" />
+        <span class="ml-2 download-text">Download as CSV</span>
+      </a>
+    </div>
+
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Value</th>
+          <th>Quantity</th>
+          <th>Barcode</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.category }}</td>
+          <td class="currency-cell">
+            {{ currency_symbol }}{{ "{:.2f}".format(item.value) }}
+          </td>
+          <td>{{ "{:.0f}".format(item.quantity) }}</td>
+          <td class="text-center">
+            <!-- Display Barcode Image and Number -->
+            <img src="{{ url_for('static', filename='barcodes/' ~ item.barcode ~ '.png') }}"
+              alt="Barcode for {{ item.barcode }}" class="barcode-image" />
+            <div>{{ item.barcode }}</div>
+          </td>
+          <td class="text-center">
+            <div class="button-group">
+              <a href="{{ url_for('update_item', id=item.id) }}" class="btn btn-link p-0">
+                <img src="{{ url_for('static', filename='img/edit.png') }}" alt="Edit" class="icon-size" />
+              </a>
+              <a href="{{ url_for('delete_item', id=item.id) }}" class="btn btn-link p-0"
+                onclick="return confirm('Are you sure you want to delete this item?')">
+                <img src="{{ url_for('static', filename='img/delete.png') }}" alt="Delete" class="icon-size" />
+              </a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

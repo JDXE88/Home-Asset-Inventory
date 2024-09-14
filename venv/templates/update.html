@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Item</title>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles.css') }}"
+  />
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Update Item</h1>
+
+    <form
+      action="{{ url_for('update_item', id=item.id) }}"
+      method="post"
+      class="form"
+    >
+      <div class="form-group mb-3">
+        <label for="name">Enter Asset Name:</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          name="name"
+          value="{{ item.name }}"
+          placeholder="Item Name"
+          required
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="category">Category:</label>
+        <select name="category" id="category" class="form-control" required>
+          <option value="" disabled>Select Category</option>
+          {% for category, subcategories in categories.items() %}
+          <optgroup label="{{ category }}">
+            {% for subcategory in subcategories %}
+            <option value="{{ subcategory }}" {% if subcategory == item.category %}selected{% endif %}>{{ subcategory }}</option>
+            {% endfor %}
+          </optgroup>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group mb-3">
+        <label for="value">Asset Value:</label>
+        <input
+          type="number"
+          step="0.01"
+          id="value"
+          class="form-control"
+          name="value"
+          value="{{ item.value }}"
+          placeholder="Value"
+          required
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="quantity">Quantity:</label>
+        <input
+          type="number"
+          id="quantity"
+          class="form-control"
+          name="quantity"
+          value="{{ "{:.0f}".format(item.quantity) }}"
+          placeholder="Quantity"
+          required
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="barcode">Barcode:</label>
+        <input
+          type="text"
+          id="barcode"
+          class="form-control"
+          name="barcode"
+          value="{{ item.barcode }}"
+          placeholder="Barcode"
+        />
+      </div>
+
+      <!-- Button Container -->
+      <div class="btn-container mt-4">
+        <button
+          type="submit"
+          class="btn-no-style"
+        >
+          <img
+            src="{{ url_for('static', filename='img/save.png') }}"
+            alt="Save Item"
+            class="icon-size"
+          />
+        </button>
+        <a
+          href="{{ url_for('index') }}"
+          class="btn-no-style"
+        >
+          <img
+            src="{{ url_for('static', filename='img/return.png') }}"
+            alt="Return"
+            class="icon-size"
+          />
+        </a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Set the theme based on user preference saved in localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    });
+  </script>
+</body>
+</html>

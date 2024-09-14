@@ -1,0 +1,365 @@
+/* Font-face rules */
+@font-face {
+  font-family: "Indie Flower";
+  src: url("/static/fonts/Indie_Flower/IndieFlower-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pesta Rakyat";
+  src: url("/static/fonts/Pesta_Rakyat/Pesta-Rakyat.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DS Digital";
+  src: url("/static/fonts/ds_digital/DS-DIGI.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Light mode */
+:root {
+  --background-color: #f8f9fa;
+  --text-color: #222222;
+  --card-background: #afdaff;
+  --card-header-background: #003366;
+  --button-bg: #007bff;
+  --button-text-color: #fff;
+  --button-success-bg: #28a745;
+  --button-success-hover-bg: #218838;
+  --button-primary-hover-bg: #0056b3;
+  --border-color: #ddd;
+  --toggle-bg: #000000;
+  --toggle-text: #ffffff;
+  --table-header-bg: #003366; /* Dark navy blue color */
+  --table-text-color: #000; /* Text color for light mode */
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --background-color: #252525;
+  --text-color: #e0e0e0;
+  --card-background: #c7efff;
+  --border-color: #444;
+  --toggle-bg: #ffffff;
+  --toggle-text: #000000;
+  --table-header-bg: #003366; /* Dark navy blue color */
+  --table-text-color: #e0e0e0; /* Text color for dark mode */
+}
+
+/* Table styling */
+.table {
+  color: var(--table-text-color);
+}
+
+.table th {
+  background-color: var(--table-header-bg);
+  color: var(--text-color);
+}
+
+.table td {
+  color: var(--table-text-color);
+}
+
+/* Global styles */
+body {
+  font-family: "DS Digital", Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--toggle-bg);
+  color: var(--toggle-text);
+  border: 1px solid var(--toggle-text);
+}
+
+/* Card styling */
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-background);
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  background-color: var(--card-header-background);
+  color: var(--text-color);
+  padding: 15px;
+}
+
+/* Static color for "Add Item" header */
+.card-header h2 {
+  color: #ffffff; /* White text */
+  background-color: #003366; /* Dark navy blue background */
+  padding: 10px;
+  margin: 0;
+  border-radius: 5px 5px 0 0; /* Rounded top corners */
+}
+
+/* Ensure the card header background doesn't affect the h2 */
+.card-header {
+  background-color: transparent;
+  padding: 0;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+/* Button styling */
+.btn {
+  font-size: 14px;
+  font-weight: normal;
+  padding: 10px 20px;
+  font-family: "Indie Flower", cursive, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-rounded {
+  border-radius: 20px;
+}
+
+.btn-success {
+  background-color: var(--button-success-bg);
+}
+
+.btn-success:hover {
+  background-color: var(--button-success-hover-bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-primary-hover-bg);
+}
+
+.btn-outline-primary {
+  border: 1px solid var(--button-bg);
+  color: var(--button-bg);
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--button-bg);
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  color: var(--button-primary-hover-bg);
+  text-decoration: underline;
+}
+
+/* Form styling */
+.form-inline .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control-file {
+  display: inline-block;
+}
+
+/* Currency selector styling */
+#currencySelector {
+  font-size: 16px;
+}
+
+/* Icon styling */
+.icon-size {
+  width: 36px;
+  height: 36px;
+}
+
+.btn-link img {
+  display: block;
+}
+
+/* Button group styling */
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-group a {
+  margin: 0 5px;
+  padding: 0;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+/* Currency cell styling */
+.currency-cell {
+  text-align: right;
+}
+
+/* Download button text styling */
+.download-text {
+  font-family: "DS Digital", sans-serif;
+  font-size: 14px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* Utility classes */
+.d-flex {
+  display: flex;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.align-items-center {
+  align-items: center;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+.mt-5 {
+  margin-top: 3rem;
+}
+.text-center {
+  text-align: center;
+}
+.text-muted {
+  color: #6c757d;
+}
+.rounded-top {
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+
+/* Button container styling */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.button-container .btn {
+  margin-left: 10px;
+}
+
+/* Search bar styling */
+.form-inline input[type="text"] {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+/* Sorting dropdown styling */
+#sortBy,
+#orderBy {
+  display: inline-block;
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Barcode image styling */
+.barcode-image {
+  width: 100px;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}
+
+/* Remove background from buttons with btn-no-style class */
+.btn-no-style {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for the button container */
+.btn-container {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 1rem; /* Add space above the buttons */
+  text-align: center; /* Center the buttons horizontally */
+}
+
+.btn-container button,
+.btn-container a {
+  margin-right: 5px; /* Space between buttons */
+}
+
+.btn-container a:last-child {
+  margin-right: 0; /* No extra margin on the last button */
+}
+
+.form-label {
+  margin-bottom: 0.5rem; /* Space between label and input */
+}
