@@ -88,12 +88,10 @@ To test CSV uploads, use the provided example file: `HAS/Home-Asset-Inventory/ex
 
 ## Screenshots
 
-<!-- Here are some screenshots of the application:
+<!-- Here are some screenshots of the application:-->
 
-![Screenshot 1](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot01.jpg)
-![Screenshot 2](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot02.jpg)
-![Screenshot 3](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/Screenshots/Screenshot03.jpg)
--->
+![Screenshot 1](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/screenshots/screenshot.png)
+![Screenshot 2](https://github.com/JDXE88/Home-Asset-Inventory/blob/main/screenshots/screenshot2.png)
 
 ## Contributing
 
