@@ -7,6 +7,7 @@ Welcome to the Home Asset Inventory system. This application helps you manage an
 - **Add, Update, and View Items:** Manage your home assets with options to add new items, update existing ones, and view the inventory.
 - **Dark Mode Toggle:** Switch between light and dark modes for better visibility and personal preference.
 - **CSV Upload:** Import items from a CSV file to quickly populate the inventory.
+- **CSV Download:** Export inventory to CSV.
 
 ## Getting Started
 
